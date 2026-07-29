@@ -9,63 +9,48 @@
 
 <div class="phone">
 
-<!-- Chat List -->
 <div id="home">
 
 <header>
 <h2>💬 ChatConnect Pro</h2>
-<input id="search" placeholder="Search chats">
+<input id="search" placeholder="Search contacts">
 </header>
 
-<div class="chat" onclick="openChat('Rahul')">
-<div class="avatar">👨</div>
-<div>
-<h3>Rahul</h3>
-<p>Hey! How are you?</p>
-</div>
-</div>
+<div id="contactList"></div>
 
+<button onclick="showAddContact()">
+➕ Add Contact
+</button>
 
-<div class="chat" onclick="openChat('Priya')">
-<div class="avatar">👩</div>
-<div>
-<h3>Priya</h3>
-<p>See you tomorrow</p>
-</div>
-</div>
-
+<button onclick="createGroup()">
+👥 Create Group
+</button>
 
 </div>
 
 
-<!-- Chat Screen -->
-<div id="chatScreen" class="hidden">
+<div id="addScreen" class="hidden">
 
 <header>
-<button onclick="goBack()">⬅️</button>
-<h2 id="chatName">Chat</h2>
+<h2>Add Contact</h2>
 </header>
 
+<input id="nameInput" placeholder="Contact name">
 
-<div id="messages"></div>
+<br><br>
 
+<button onclick="addContact()">
+Save
+</button>
 
-<div class="inputBox">
-
-<input id="messageInput" placeholder="Type message">
-
-<button onclick="sendMessage()">
-Send
+<button onclick="backHome()">
+Back
 </button>
 
 </div>
 
 
 </div>
-
-
-</div>
-
 
 <script src="script.js"></script>
 
