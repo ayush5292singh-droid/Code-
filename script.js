@@ -1,90 +1,118 @@
-let currentChat="";
+let contacts =
+JSON.parse(localStorage.getItem("contacts")) || 
+[
+{name:"Rahul",type:"Personal"},
+{name:"Priya",type:"Personal"}
+];
 
 
-function openChat(name){
-
-currentChat=name;
-
-document.getElementById("home").classList.add("hidden");
-
-document.getElementById("chatScreen").classList.remove("hidden");
-
-document.getElementById("chatName").innerHTML=name;
-
-loadMessages();
-
-}
+const list=document.getElementById("contactList");
 
 
+function displayContacts(){
 
-function goBack(){
+list.innerHTML="";
 
-document.getElementById("chatScreen").classList.add("hidden");
+contacts.forEach(person=>{
 
-document.getElementById("home").classList.remove("hidden");
+list.innerHTML +=
 
-}
-
-
-
-function sendMessage(){
-
-let input=document.getElementById("messageInput");
-
-let text=input.value.trim();
-
-
-if(text==="") return;
-
-
-let messages=JSON.parse(
-localStorage.getItem(currentChat)
-) || [];
-
-
-messages.push(text);
-
-
-localStorage.setItem(
-currentChat,
-JSON.stringify(messages)
-);
-
-
-input.value="";
-
-loadMessages();
-
-}
-
-
-
-function loadMessages(){
-
-let box=document.getElementById("messages");
-
-box.innerHTML="";
-
-
-let messages=JSON.parse(
-localStorage.getItem(currentChat)
-) || [];
-
-
-messages.forEach(msg=>{
-
-box.innerHTML+=
 `
-<div class="message">
-${msg}
-<br>
-<small>${new Date().toLocaleTimeString()}</small>
+<div class="contact">
+<div class="avatar">👤</div>
+
+<div>
+<h3>${person.name}</h3>
+<p>${person.type}</p>
+</div>
+
 </div>
 `;
 
 });
 
+}
 
-box.scrollTop=box.scrollHeight;
+
+displayContacts();
+
+
+
+function showAddContact(){
+
+document.getElementById("home")
+.classList.add("hidden");
+
+document.getElementById("addScreen")
+.classList.remove("hidden");
+
+}
+
+
+
+function addContact(){
+
+let name=
+document.getElementById("nameInput").value;
+
+
+if(name==="") return;
+
+
+contacts.push({
+name:name,
+type:"Personal"
+});
+
+
+localStorage.setItem(
+"contacts",
+JSON.stringify(contacts)
+);
+
+
+backHome();
+
+}
+
+
+
+function createGroup(){
+
+let groupName=
+prompt("Enter group name");
+
+
+if(groupName){
+
+contacts.push({
+name:groupName,
+type:"Group 👥"
+});
+
+
+localStorage.setItem(
+"contacts",
+JSON.stringify(contacts)
+);
+
+
+displayContacts();
+
+}
+
+}
+
+
+
+function backHome(){
+
+document.getElementById("addScreen")
+.classList.add("hidden");
+
+document.getElementById("home")
+.classList.remove("hidden");
+
+displayContacts();
 
 }
