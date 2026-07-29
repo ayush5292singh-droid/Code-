@@ -9,48 +9,76 @@
 
 <div class="phone">
 
-<div id="home">
+<div id="app">
 
 <header>
-<h2>💬 ChatConnect Pro</h2>
-<input id="search" placeholder="Search contacts">
+<h2>⚙️ Settings</h2>
 </header>
 
-<div id="contactList"></div>
 
-<button onclick="showAddContact()">
-➕ Add Contact
-</button>
+<div class="setting">
 
-<button onclick="createGroup()">
-👥 Create Group
+<label>
+👤 Profile Name
+</label>
+
+<input id="profileName" placeholder="Your name">
+
+</div>
+
+
+<div class="setting">
+
+<label>
+🌙 Dark Mode</label>
+
+<button onclick="toggleDark()">
+Change Mode
 </button>
 
 </div>
 
 
-<div id="addScreen" class="hidden">
+<div class="setting">
 
-<header>
-<h2>Add Contact</h2>
-</header>
+<label>
+🎨 Theme Colour</label>
 
-<input id="nameInput" placeholder="Contact name">
+<select id="theme" onchange="changeTheme()">
 
-<br><br>
+<option value="#075e54">
+Green
+</option>
 
-<button onclick="addContact()">
-Save
-</button>
+<option value="#1565c0">
+Blue
+</option>
 
-<button onclick="backHome()">
-Back
-</button>
+<option value="#6a1b9a">
+Purple
+</option>
+
+<option value="#c62828">
+Red
+</option>
+
+</select>
 
 </div>
 
 
+<button onclick="saveSettings()">
+💾 Save Settings
+</button>
+
+
+<h3 id="status"></h3>
+
+
 </div>
+
+</div>
+
 
 <script src="script.js"></script>
 
