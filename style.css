@@ -20,44 +20,48 @@ overflow:hidden;
 header{
 background:#075e54;
 color:white;
-padding:15px;
+padding:20px;
 }
 
 
-header input{
-width:90%;
-padding:10px;
-border-radius:10px;
-border:none;
-}
-
-
-.contact{
-display:flex;
-align-items:center;
-padding:15px;
+.setting{
+padding:20px;
 border-bottom:1px solid #ddd;
-cursor:pointer;
 }
 
 
-.avatar{
-font-size:35px;
-margin-right:15px;
+input,select{
+padding:10px;
+width:90%;
+margin-top:10px;
+border-radius:8px;
 }
 
 
 button{
 padding:12px;
-margin:10px;
-border:none;
-border-radius:10px;
+margin:15px;
 background:#075e54;
 color:white;
+border:none;
+border-radius:10px;
 cursor:pointer;
 }
 
 
-.hidden{
-display:none;
+/* Dark Mode */
+
+.dark{
+background:#111;
+color:white;
+}
+
+
+.dark .phone{
+background:#222;
+}
+
+
+.dark .setting{
+border-color:#444;
 }
