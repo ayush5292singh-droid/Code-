@@ -1,61 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ChatConnect Pro</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <div class="phone">
 
+<!-- Chat List -->
+<div id="home">
+
 <header>
 <h2>💬 ChatConnect Pro</h2>
-<input type="text" id="search" placeholder="Search chats...">
+<input id="search" placeholder="Search chats">
 </header>
 
-<div id="chatList">
-
-<div class="chat">
+<div class="chat" onclick="openChat('Rahul')">
 <div class="avatar">👨</div>
-<div class="info">
+<div>
 <h3>Rahul</h3>
 <p>Hey! How are you?</p>
 </div>
-<div class="time">10:30</div>
 </div>
 
-<div class="chat">
+
+<div class="chat" onclick="openChat('Priya')">
 <div class="avatar">👩</div>
-<div class="info">
+<div>
 <h3>Priya</h3>
-<p>See you tomorrow.</p>
+<p>See you tomorrow</p>
 </div>
-<div class="time">09:10</div>
-</div>
-
-<div class="chat">
-<div class="avatar">👨‍💼</div>
-<div class="info">
-<h3>Office Group</h3>
-<p>Meeting starts at 2 PM.</p>
-</div>
-<div class="time">Yesterday</div>
 </div>
 
-<div class="chat">
-<div class="avatar">👨‍👩‍👧</div>
-<div class="info">
-<h3>Family</h3>
-<p>Dinner at 8 PM 🍽️</p>
-</div>
-<div class="time">Yesterday</div>
-</div>
 
 </div>
 
+
+<!-- Chat Screen -->
+<div id="chatScreen" class="hidden">
+
+<header>
+<button onclick="goBack()">⬅️</button>
+<h2 id="chatName">Chat</h2>
+</header>
+
+
+<div id="messages"></div>
+
+
+<div class="inputBox">
+
+<input id="messageInput" placeholder="Type message">
+
+<button onclick="sendMessage()">
+Send
+</button>
+
 </div>
+
+
+</div>
+
+
+</div>
+
 
 <script src="script.js"></script>
 
