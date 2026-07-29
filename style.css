@@ -65,3 +65,23 @@ background:#222;
 .dark .setting{
 border-color:#444;
 }
+.chat,
+.contact,
+button{
+transition:0.3s;
+}
+
+
+button:hover{
+transform:scale(1.05);
+}
+
+
+.star{
+color:gold;
+}
+
+
+.pin{
+background:#fff3cd;
+}
