@@ -1,118 +1,77 @@
-let contacts =
-JSON.parse(localStorage.getItem("contacts")) || 
-[
-{name:"Rahul",type:"Personal"},
-{name:"Priya",type:"Personal"}
-];
+let dark=false;
 
 
-const list=document.getElementById("contactList");
+function toggleDark(){
 
+dark=!dark;
 
-function displayContacts(){
+if(dark){
 
-list.innerHTML="";
-
-contacts.forEach(person=>{
-
-list.innerHTML +=
-
-`
-<div class="contact">
-<div class="avatar">👤</div>
-
-<div>
-<h3>${person.name}</h3>
-<p>${person.type}</p>
-</div>
-
-</div>
-`;
-
-});
+document.body.classList.add("dark");
 
 }
 
+else{
 
-displayContacts();
+document.body.classList.remove("dark");
 
-
-
-function showAddContact(){
-
-document.getElementById("home")
-.classList.add("hidden");
-
-document.getElementById("addScreen")
-.classList.remove("hidden");
+}
 
 }
 
 
 
-function addContact(){
+function changeTheme(){
+
+let color=
+document.getElementById("theme").value;
+
+
+document.querySelector("header")
+.style.background=color;
+
+
+}
+
+
+
+function saveSettings(){
 
 let name=
-document.getElementById("nameInput").value;
-
-
-if(name==="") return;
-
-
-contacts.push({
-name:name,
-type:"Personal"
-});
+document.getElementById("profileName").value;
 
 
 localStorage.setItem(
-"contacts",
-JSON.stringify(contacts)
+"profile",
+name
 );
-
-
-backHome();
-
-}
-
-
-
-function createGroup(){
-
-let groupName=
-prompt("Enter group name");
-
-
-if(groupName){
-
-contacts.push({
-name:groupName,
-type:"Group 👥"
-});
 
 
 localStorage.setItem(
-"contacts",
-JSON.stringify(contacts)
+"darkMode",
+dark
 );
 
 
-displayContacts();
+document.getElementById("status")
+.innerHTML=
+"✅ Settings Saved!";
 
 }
 
-}
 
 
+window.onload=function(){
 
-function backHome(){
+let savedName=
+localStorage.getItem("profile");
 
-document.getElementById("addScreen")
-.classList.add("hidden");
 
-document.getElementById("home")
-.classList.remove("hidden");
+if(savedName){
 
-displayContacts();
+document.getElementById("profileName").value=savedName;
 
 }
+
+
+};
