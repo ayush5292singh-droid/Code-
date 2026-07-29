@@ -75,3 +75,59 @@ document.getElementById("profileName").value=savedName;
 
 
 };
+function backupData(){
+
+let data={
+contacts:
+localStorage.getItem("contacts"),
+
+profile:
+localStorage.getItem("profile")
+};
+
+
+localStorage.setItem(
+"backup",
+JSON.stringify(data)
+);
+
+
+alert("Backup Created ✅");
+
+}
+
+
+
+function restoreData(){
+
+let data=
+JSON.parse(
+localStorage.getItem("backup")
+);
+
+
+if(data){
+
+localStorage.setItem(
+"contacts",
+data.contacts
+);
+
+
+localStorage.setItem(
+"profile",
+data.profile
+);
+
+
+alert("Restored Successfully ✅");
+
+}
+
+else{
+
+alert("No Backup Found");
+
+}
+
+}
